@@ -1,0 +1,17 @@
+#!name=Railway-VMess
+# 由你的 Railway 私人节点自动生成，请勿外传此订阅链接（内含节点密码）
+
+[General]
+loglevel = notify
+bypass-system = true
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local
+dns-server = 223.5.5.5, 119.29.29.29
+
+[Proxy]
+Railway = vmess, ${DOMAIN}, 443, username=${UUID}, ws=true, ws-path=/vmess, tls=true, sni=${DOMAIN}
+
+[Proxy Group]
+PROXY = select, Railway, DIRECT
+
+[Rule]
+FINAL, PROXY
